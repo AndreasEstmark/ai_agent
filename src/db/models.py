@@ -14,3 +14,14 @@ class Car(SQLModel, table=True):
     default_factory=dict,
     sa_column=Column(JSON)
 )
+
+
+class TimeSeries(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    hex: str = Field(index=True)  
+    good_aircraft: int
+    bad_aircraft: int
+    total: int
+    interference_ratio: float
+    lat: float
+    lon: float
